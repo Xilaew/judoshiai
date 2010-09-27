@@ -78,8 +78,11 @@ static int db_callback(void *data, int argc, char **argv, char **azColName)
         return 0;
     }
 
-    if ((j.deleted & DELETED) || j.visible == 0)
+    if ((j.deleted & DELETED) || j.visible == 0) {
+        if (j.visible && j.index >= current_index)
+            current_index = j.index + 1;
         return 0;
+    }
 
     if (flags & PRINT_COMPETITORS) {
         if (print_file == NULL)
