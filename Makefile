@@ -68,7 +68,7 @@ $(LANGUAGEFILE): common/*.po
 	make -C common
 
 $(DOCFILE) $(DOCFILE2): doc/judoshiai.odt doc/judotimer.odg
-	make -C doc
+	#make -C doc
 
 $(FLASHFILE): flash/judoshiai/*.hx
 	make -C flash
