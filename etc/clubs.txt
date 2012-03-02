@@ -14,7 +14,7 @@ Espoon Urheilijat=ESU
 Finndai=FND>Helsinki
 Fojudo
 Forssan Alku
-Fudoshin=FUD>Pori
+Fudoshin=FUD
 Fuguda=FUG>Karjaa
 Hämeenkosken Judo
 Hämeenlinnan JS=HÄM
