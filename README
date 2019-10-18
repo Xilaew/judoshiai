@@ -2,8 +2,32 @@ HOW TO MAKE A BUILD
 
 Linux and Windows are the supported operating systems.
 
+for the impatient, here is the short version:
+
+install a lot of packages on your Ubuntu 18.04 LTS
+
+$ sudo apt-get install libreoffice build-essential libgtk-3-dev bison flex checkinstall librsvg2-dev libao-dev \
+    libmpg123-dev libcurl4-openssl-dev libssh2-1-dev libavcodec-dev libavformat-dev libavresample-dev libavutil-dev \
+    libswscale-dev liblzma-dev libxml2-dev git mingw-w64 wine-stable
+
+Clone the judoshiai repository
+
+$ git clone https://git.code.sf.net/p/judoshiai/judoshiai judoshiai
+
+setup everything to compile for windows
+
+$ cd judoshiai; ./install-mxe-env.sh
+$ wget http://judoshiai.sourceforge.net/win32-gtk3.tgz
+$ sudo tar xvzf win32-gtk3.tgz -C /opt
+
+build Software
+
+$ ./build-all.sh
+
+Now follows everything explained in a bit more detail
+
 Development work is done in Linux environment. For Windows users it is recommended
-to install VirtualBox + Ubuntu (32 bit) for compilation. Learn how to use
+to install VirtualBox + Ubuntu 18.4 LTS for compilation. Learn how to use
 Linux terminal and line commands. Everything below after the $ sign 
 is typed in a terminal.
 
@@ -25,7 +49,7 @@ contains everything needed for GTK+ graphical user interface development.
 
 Next some libraries:
 
-$ sudo apt-get install librsvg2-dev libao-dev libmpg123-dev libcurl4-openssl-dev
+$ sudo apt-get install librsvg2-dev libao-dev libmpg123-dev libcurl4-openssl-dev libssh2-1-dev
 
 For judoproxy:
 
@@ -40,7 +64,7 @@ If you are behind a proxy you want to edit /home/$USER/.gitconfig
 
 Get the JudoShiai software:
 
-$ git clone http://git.code.sf.net/p/judoshiai/judoshiai
+$ git clone https://git.code.sf.net/p/judoshiai/judoshiai judoshiai
 
 Change directory:
 
@@ -56,13 +80,24 @@ $ sudo make debian
 
 You can find the result in judoshiai-code/release-linux.
 
-Cross compilation for Windows requires more software:
+Cross compilation for Windows is done with the M cross environment. in order to set up M cross environment its prerequisits need to be installed
 
-$ sudo apt-get install mingw32
+$ sudo apt-get install autoconf automake autopoint bash bison bzip2 flex g++ g++-multilib gettext git gperf intltool libc6-dev-i386 libgdk-pixbuf2.0-dev libltdl-dev libssl-dev libtool-bin libxml-parser-perl lzip make openssl p7zip-full patch perl pkg-config python ruby sed unzip wget xz-utils
+
+Now you can setup and precompile the M cross environment
+
+$ cd
+$ git clone https://github.com/mxe/mxe.git
+$ cd ~/mxe
+$ make MXE_TARGETS='i686-w64-mingw32.shared x86_64-w64-mingw32.shared' gtk3 curl librsvg libao mpg123 gmp gnutls nettle libgpg_error
+
+for windows XP the software is build using a precompiled mingw from the ubuntu software repositoriy
+
+$ sudo apt-get install mingw-w64
 
 Some programs need Windows emulator to run:
 
-$ sudo apt-get install wine
+$ sudo apt-get install wine-stable
 
 There exist still lots of required libraries and run time DLL's that are not in
 any package. Many DLL's have incompatible versions around and finding the correct one 
