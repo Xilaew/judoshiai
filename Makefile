@@ -21,19 +21,20 @@ ifeq ($(TOOL),MXE)
     DLLS += libgdk_pixbuf-2.0-0.dll libgio-2.0-0.dll libglib-2.0-0.dll
     DLLS += libgmodule-2.0-0.dll libgmp-10.dll libgnutls-30.dll
     DLLS += libgobject-2.0-0.dll libgthread-2.0-0.dll
-    DLLS += libgtk-3-0.dll libharfbuzz-0.dll libhogweed-4.dll
+    DLLS += libgtk-3-0.dll libharfbuzz-0.dll libhogweed-5.dll
     DLLS += libiconv-2.dll libidn2-0.dll libintl-8.dll
     DLLS += libjpeg-9.dll liblzma-5.dll libmpg123-0.dll
-    DLLS += libnettle-6.dll libpango-1.0-0.dll libpangocairo-1.0-0.dll
+    DLLS += libnettle-7.dll libpango-1.0-0.dll libpangocairo-1.0-0.dll
     DLLS += libpangoft2-1.0-0.dll libpangowin32-1.0-0.dll libpcre-1.dll
     DLLS += libpixman-1-0.dll libpng16-16.dll librsvg-2-2.dll
     DLLS += libssh2-1.dll libtiff-5.dll libunistring-2.dll
     DLLS += libwinpthread-1.dll libxml2-2.dll zlib1.dll libwebp-7.dll
+    DLLS += libgpg-error-0.dll
 
     ifeq ($(TARGETOS),WIN32)
-        DLLS += libgpg-error-0.dll libgcc_s_sjlj-1.dll
+        DLLS += libgcc_s_sjlj-1.dll
     else
-        DLLS += libgpg-error6-0.dll libgcc_s_seh-1.dll
+        DLLS += libgcc_s_seh-1.dll
     endif
 endif
 
