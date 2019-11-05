@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 function report() {
     echo "**************************"
     echo "$1"
