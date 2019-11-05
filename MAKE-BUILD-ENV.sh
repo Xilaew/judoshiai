@@ -24,8 +24,8 @@ report "FPM for Debian package creation"
 sudo apt-get -y install ruby ruby-dev rubygems
 sudo -E gem install fpm
 report "Stuff for WinXP build"
-sudo apt-get -y install mingw32
-sudo apt-get -y install wine
+sudo apt-get -y install mingw-w64
+sudo apt-get -y install wine-stable
 wget http://judoshiai.sourceforge.net/win32-gtk3.tgz
 sudo tar xvzf win32-gtk3.tgz -C /opt
 report "Stuff for Win32 and Win64 builds. This will take a long time to finish."
