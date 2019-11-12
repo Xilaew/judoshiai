@@ -35,7 +35,7 @@ cd ~/mxe
 make MXE_TARGETS='i686-w64-mingw32.shared x86_64-w64-mingw32.shared' gtk3 curl librsvg libao mpg123
 report "Get JudoShiai source code"
 cd
-git clone http://git.code.sf.net/p/judoshiai/judoshiai
+(cd judoshiai; git status) || git clone http://git.code.sf.net/p/judoshiai/judoshiai
 cd judoshiai
 report "Compile all"
 ./build-all.sh

@@ -128,7 +128,7 @@ endif
 	@echo "Copy DLLs"
 	@echo "---------------------------"
 ifeq ($(TOOL),MXE)
-	    cp $(foreach dll,$(DLLS),$(DEVELDIR)/bin/$(dll)) $(RELDIR)/bin/
+	    cp $(DEVELDIR)/bin/*.dll $(RELDIR)/bin/
 else
 	    cp $(RUNDIR)/bin/*.dll $(RELDIR)/bin/
 	    cp $(SOUNDDIR)/bin/*.dll $(RELDIR)/bin/
@@ -162,8 +162,13 @@ endif
 	cp -r $(RUNDIR)/share/locale/fr $(RELDIR)/share/locale/
 	cp -r $(RUNDIR)/share/locale/fa $(RELDIR)/share/locale/
 	cp -r $(RUNDIR)/share/locale/en_GB $(RELDIR)/share/locale/
+ifeq ($(TOOL),MXE)
+	cp -r $(DEVELDIR)/share/themes $(RELDIR)/share/
+	cp -r $(DEVELDIR)/share/icons $(RELDIR)/share/
+else
 	cp -r share/themes $(RELDIR)/share/
 	cp -r share/icons $(RELDIR)/share/
+endif
 	cp -r $(RUNDIR)/etc $(RELDIR)/
 
 	mkdir -p $(RELDIR)/etc/gtk-3.0
