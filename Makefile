@@ -61,7 +61,7 @@ all:
 	@echo "---------------------------"
 	@echo "Create release directories"
 	@echo "---------------------------"
-	rm -rf $(RELDIR)
+	-rm -rf $(RELDIR)
 	mkdir -p $(RELDIR)/bin
 	mkdir -p $(RELDIR)/share/locale/
 	mkdir -p $(RELDIR)/share/locale/fi/LC_MESSAGES

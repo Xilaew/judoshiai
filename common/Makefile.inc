@@ -63,10 +63,10 @@ ifeq ($(OS),Windows_NT)
 ### Windows (host=Windows, target=Windows) ###
 
     ifndef WIN32_DIR
-        WIN32_DIR=/c/win32
+        WIN32_DIR=/c/msys64/mingw64
     endif
     ifndef MINGW32_DIR
-        MINGW32_DIR=/c/MinGW
+        MINGW32_DIR=/c/msys64/mingw64
     endif
 
     CC=gcc
@@ -75,16 +75,16 @@ ifeq ($(OS),Windows_NT)
 
     SUFF=.exe
     ZIP=
-    DEVELDIR=$(WIN32_DIR)/gtk
+    DEVELDIR=/c/msys64/mingw64
     SOUNDDIR=$(WIN32_DIR)/mpg123
-    RSVGDIR=$(WIN32_DIR)/rsvg
-    CURLDIR=$(WIN32_DIR)/curl
+    RSVGDIR=$(WIN32_DIR)
+    CURLDIR=$(WIN32_DIR)
     SSH2DIR=$(WIN32_DIR)/ssh2
     WEBKITDIR=$(WIN32_DIR)/webkitgtk
     SOAPDIR=$(WIN32_DIR)/soup
     RESHACKER=$(WIN32_DIR)/bin/ResHacker.exe
     WINDRES=$(MINGW32_DIR)/bin/windres.exe
-    INNOSETUP="$(WIN32_DIR)/Inno Setup 5/ISCC.exe"
+    INNOSETUP="C:/Program Files (x86)/Inno Setup 6/ISCC.exe"
     OBJDIR=obj-win32
     RELEASEDIR=$(JS_BUILD_DIR)/release-win32
 
@@ -211,9 +211,9 @@ ifeq ($(OS),Windows_NT)
                   -I$(SOAPDIR)/include/libsoup-2.4
     endif
 
-    LIBS=-L$(DEVELDIR)/lib $(DEVELDIR)/lib/glib-2.0.lib -L$(RSVGDIR)/bin \
+    LIBS=-L$(DEVELDIR)/lib -L$(RSVGDIR)/bin \
     -L$(DEVELDIR)/bin \
-    -lgtk-win32-$(GTKVER).0 -lgdk-win32-$(GTKVER).0 -latk-1.0 -lgio-2.0 -lgdk_pixbuf-2.0 \
+    -lgtk-$(GTKVER) -lgdk-$(GTKVER) -latk-1.0 -lgio-2.0 -lgdk_pixbuf-2.0 \
     -lpangowin32-1.0 -lusp10 -lgdi32 -lpangocairo-1.0 -lpango-1.0 -lgobject-2.0 \
     -lgmodule-2.0 -lgthread-2.0 -lglib-2.0 -lintl -lcairo \
     -lcroco-0.6-3 -lrsvg-2-2 -lxml2-2 \
