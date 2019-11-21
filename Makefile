@@ -129,16 +129,18 @@ endif
 	@echo "---------------------------"
 ifeq ($(TOOL),MXE)
 	    cp $(foreach dll,$(DLLS),$(DEVELDIR)/bin/$(dll)) $(RELDIR)/bin/
+else ifeq ($(TOOL),MSYS2)
+	./packageDependenciesFromMsys2.sh
 else
-	    cp $(RUNDIR)/bin/*.dll $(RELDIR)/bin/
-	    cp $(SOUNDDIR)/bin/*.dll $(RELDIR)/bin/
-	    cp $(RSVGDIR)/bin/*.dll $(RELDIR)/bin/
-	    cp $(CURLDIR)/bin/*.dll $(RELDIR)/bin/
-	    cp $(SSH2DIR)/bin/*.dll $(RELDIR)/bin/
-            ifeq ($(JUDOPROXY),YES)
+	cp $(RUNDIR)/bin/*.dll $(RELDIR)/bin/
+	cp $(SOUNDDIR)/bin/*.dll $(RELDIR)/bin/
+	cp $(RSVGDIR)/bin/*.dll $(RELDIR)/bin/
+	cp $(CURLDIR)/bin/*.dll $(RELDIR)/bin/
+	cp $(SSH2DIR)/bin/*.dll $(RELDIR)/bin/
+ifeq ($(JUDOPROXY),YES)
 		cp $(WEBKITDIR)/bin/*.dll $(RELDIR)/bin/
 		cp $(SOAPDIR)/bin/*.dll $(RELDIR)/bin/
-            endif
+endif
 	cp -r $(RUNDIR)/lib/gtk-$(GTKVER).0 $(RELDIR)/lib/
 endif
 	@echo "---------------------------"

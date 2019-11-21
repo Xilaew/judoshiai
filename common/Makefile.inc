@@ -48,6 +48,7 @@ else
     ifeq ($(OS),Windows_NT)
         TGT=WIN32
         TGTEXT=NT
+        TOOL=MSYS2
         TGTEXT_S="\"$(TGTEXT)\""
     else
         TGT=LINUX
@@ -71,7 +72,7 @@ ifeq ($(OS),Windows_NT)
 
     CC=gcc
     LD=gcc
-    LIBREOFFICE=soffice.exe
+    LIBREOFFICE="C:/Program Files/LibreOffice/program/soffice.exe"
 
     SUFF=.exe
     ZIP=
