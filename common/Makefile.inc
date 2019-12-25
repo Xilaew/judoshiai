@@ -16,7 +16,7 @@ WARNINGS = -Wall -Wshadow
 JUDOPROXY=NO
 JUDOHTTPD=NO
 TOOL=NORMAL
-MXEDIR=/home/$(USER)/mxe/usr
+MXEDIR=/usr/lib/mxe/usr
 TGTEXT_S="\"?\""
 
 ifneq ("$(wildcard /opt/win32)","")

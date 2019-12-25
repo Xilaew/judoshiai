@@ -1,4 +1,7 @@
 #!/bin/bash
+
+set -e
+
 LOG=/tmp/build.log
 date > $LOG
 make clean                2>&1 | tee -a $LOG
