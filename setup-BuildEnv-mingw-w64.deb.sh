@@ -1,0 +1,22 @@
+#!/bin/bash
+set -e
+
+function report() {
+  echo "**************************"
+  echo "$1"
+  echo "**************************"
+}
+
+# install MinGw-W64
+sudo apt install mingw-w64 mingw-w64-tools wine-stable
+# Download prebuilt dependencies from MSYS2 project.
+wget http://repo.msys2.org/mingw/x86_64/mingw-w64-x86_64-curl-7.67.0-1-any.pkg.tar.xz
+wget http://repo.msys2.org/mingw/x86_64/mingw-w64-x86_64-gtk3-3.24.9-4-any.pkg.tar.xz
+# Unpack prebuild dependencies from MSYS2 project.
+tar -xf mingw-w64-x86_64-curl-7.67.0-1-any.pkg.tar.xz
+tar -xf mingw-w64-x86_64-gtk3-3.24.9-4-any.pkg.tar.xz
+
+report "\
+The mxe build environment has been successfully set up!
+You can now cross compile JudoShiai for Windows 7, Windows 8, Windows 10
+	./build-windows.sh"
