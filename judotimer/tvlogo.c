@@ -76,6 +76,7 @@ gchar *tvlogofile[NUM_LOGO_FILES];
 gint tvlogo_update = 0;
 gboolean vlc_connection_ok = FALSE;
 static gchar  vlc_host[128] = {0};
+gdouble  tvlogo_scale;
 guint  vlc_port = 0, tvlogo_port = 0;
 gint   tvlogo_x = 10;
 gint   tvlogo_y = 10;
