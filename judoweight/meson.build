@@ -1,4 +1,4 @@
-judoproxy_sources = [
+judoweight_sources = [
     'comm.c',
     'html.c',
     'main.c',
@@ -8,15 +8,14 @@ judoproxy_sources = [
 
 common_sources = [
     '../common/auto-update.c',
-    '../common/binreloc.c',
     '../common/ip.c',
     '../common/language.c',
     '../common/protocol.c',
     ]
 
-judoproxy_exe = executable( 'judoproxy',
-    judoproxy_sources, common_sources,
-    c_args : [ '-DAPPLICATION="judoproxy"', '-DAPP_NUM=6' ],
+judoweight_exe = executable( 'judoweight',
+    judoweight_sources, common_sources,
+    c_args : [ '-DAPPLICATION="judoweight"', '-DAPP_NUM=4' ],
     include_directories : includes,
     install : true,
-    dependencies : [ curl_dep, gtk_dep, ws_dep, xml_dep ] )
+    dependencies : [ gtk_dep, ws_dep ] )

@@ -20,8 +20,8 @@ common_sources = [
     '../common/websock-protocol.c'
     ]
 
-judoshiai_exe = executable( 'judotimer',
-    judotimer_sources, common_sources, 'judotimer.h',
+judotimer_exe = executable( 'judotimer',
+    judotimer_sources, common_sources,
     c_args : [ '-DAPPLICATION="judotimer"', '-DAPP_NUM=2' ],
     include_directories : includes,
     install : true,

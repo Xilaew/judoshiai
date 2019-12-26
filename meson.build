@@ -6,6 +6,7 @@ add_project_arguments(
     '-DGTKVER=3',
     '-DUSE_PANGO',
     '-DENABLE_NLS',
+    '-Wno-deprecated-declarations',
     language : 'c' )
 if host_machine.system() == 'linux'
     add_project_arguments('-DENABLE_BINRELOC=',
@@ -19,22 +20,29 @@ endif
 flex = find_program('flex')
 bison = find_program('bison')
 patch = find_program('patch')
+libreoffic = find_program('soffice')
 
-curl_dep = dependency('libcurl')
 cc = meson.get_compiler('c')
+ao_dep = dependency('ao')
+curl_dep = dependency('libcurl')
 dl_dep = cc.find_library('dl', required : false)
-ws_dep = cc.find_library('ws2_32', required : false)
+glib_dep = dependency('glib-2.0')
 gtk_dep = dependency('gtk+-3.0')
+m_dep = cc.find_library('m', required : false)
+mpg_dep = dependency('libmpg123')
 rsvg_dep = dependency('librsvg-2.0')
 ssh_dep = dependency('libssh2')
 thread_dep = dependency('threads')
-ao_dep = dependency('ao')
-mpg_dep = dependency('libmpg123')
+ws_dep = cc.find_library('ws2_32', required : false)
+xml_dep = dependency('libxml-2.0')
 
 includes = include_directories(['common', '3rdparty/httpp', '3rdparty/sqlite3', '3rdparty/cJSON', '3rdparty/lisp'])
 
 subdir('judoinfo')
 subdir('judojudogi')
-subdir('judoproxy')
+if host_machine.system() == 'linux'
+    subdir('judoproxy')
+endif
 subdir('judoshiai')
 subdir('judotimer')
+subdir('serial')
