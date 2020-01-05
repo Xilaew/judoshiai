@@ -8,7 +8,20 @@
 #ifndef _JUDOJUDOGI_H_
 #define _JUDOJUDOGI_H_
 
+#if defined(__WIN32__) || defined(WIN32)
+
+#define  __USE_W32_SOCKETS
+//#define Win32_Winsock
+
+#include <winsock2.h>
+#include <windows.h>
+#include <stdio.h>
+#include <initguid.h>
+#include <ws2tcpip.h>
+#define in_addr_t uint32_t
+#else /* UNIX */
 #include <netinet/in.h>
+#endif
 
 #include "comm.h"
 

@@ -2105,7 +2105,6 @@ int main( int   argc,
     GThread   *gth = NULL;         /* thread id */
     gboolean   run_flag = TRUE;   /* used as exit flag for threads */
     gint i;
-    gboolean set_transparent = FALSE;
 
 #ifdef WIN32
     if (argc >= 2 && !strcmp(argv[1], "-console")) {
@@ -2113,6 +2112,7 @@ int main( int   argc,
 	freopen("CON", "w", stdout);
     }
 #else
+    gboolean set_transparent = FALSE;
     if (argc >= 2 && !strcmp(argv[1], "-transparent")) {
 	set_transparent = TRUE;
     }
