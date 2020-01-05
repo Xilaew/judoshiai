@@ -22,7 +22,7 @@ common_sources = [
 
 judotimer_exe = executable( 'judotimer',
     judotimer_sources, common_sources,
-    c_args : [ '-DAPPLICATION="judotimer"', '-DAPP_NUM=2' ],
+    c_args : [ '-DAPP_NUM=2' ],
     include_directories : includes,
     install : true,
     dependencies : [ ao_dep, dl_dep, gtk_dep, mpg_dep, rsvg_dep, ws_dep ] )

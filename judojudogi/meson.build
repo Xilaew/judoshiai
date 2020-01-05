@@ -19,7 +19,7 @@ common_sources = [
 
 judojudogi_exe = executable( 'judojudogi',
     judojudogi_sources, common_sources,
-    c_args : [ '-DAPPLICATION="judojudogi"', '-DAPP_NUM=5' ],
+    c_args : [ '-DAPP_NUM=5' ],
     include_directories : includes,
     install : true,
     dependencies : [ gtk_dep, ws_dep ] )

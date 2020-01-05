@@ -16,7 +16,7 @@ common_sources = [
 
 judoproxy_exe = executable( 'judoproxy',
     judoproxy_sources, common_sources,
-    c_args : [ '-DAPPLICATION="judoproxy"', '-DAPP_NUM=6' ],
+    c_args : [ '-DAPP_NUM=6' ],
     include_directories : includes,
     install : true,
     dependencies : [ curl_dep, gtk_dep, ws_dep, xml_dep ] )

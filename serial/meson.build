@@ -12,7 +12,7 @@ common_sources = [
 
 thirdparty_sources = [
     '../3rdparty/cJSON/cJSON.c',
-    '../3rdparty/httpp/httpp.c',
+    '../3rdparty/httpp/httpp.c'
     ]
 
 serial_exe = executable( 'websock-serial',

@@ -1,9 +1,9 @@
 judoweight_sources = [
     'comm.c',
-    'html.c',
     'main.c',
     'menus.c',
-    'video.c'
+    'print.c',
+    'svg.c'
     ]
 
 common_sources = [
@@ -11,11 +11,12 @@ common_sources = [
     '../common/ip.c',
     '../common/language.c',
     '../common/protocol.c',
+    '../common/serial.c',
     ]
 
 judoweight_exe = executable( 'judoweight',
     judoweight_sources, common_sources,
-    c_args : [ '-DAPPLICATION="judoweight"', '-DAPP_NUM=4' ],
+    c_args : [ '-DAPP_NUM=4' ],
     include_directories : includes,
     install : true,
-    dependencies : [ gtk_dep, ws_dep ] )
+    dependencies : [ gtk_dep, rsvg_dep, ws_dep ] )

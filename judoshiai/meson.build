@@ -90,7 +90,7 @@ sqlite = custom_target(
 judoshiai_exe = executable( 'judoshiai',
     judoshiai_sources, common_sources, thirdparty_sources, 
     lex, basic[0], sqlite,
-    c_args : [ '-DAPPLICATION="judoshiai"', '-DAPP_NUM=1' ],
+    c_args : [ '-DAPP_NUM=1' ],
     include_directories : includes,
     install : true,
     dependencies : [ curl_dep, dl_dep, gtk_dep, rsvg_dep, ssh_dep, thread_dep, ws_dep ] )
