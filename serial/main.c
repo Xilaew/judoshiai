@@ -16,10 +16,10 @@
 #ifdef WIN32
 
 #define  __USE_W32_SOCKETS
+#include <winsock2.h>
 #include <windows.h>
 //#include <stdio.h>
 #include <initguid.h>
-#include <winsock2.h>
 #include <ws2tcpip.h>
 #include <process.h>
 
@@ -76,9 +76,6 @@ void close_all(void)
 int main( int   argc,
           char *argv[] )
 {
-    time_t     now;
-    struct tm *tm;
-    GThread   *gth = NULL;         /* thread id */
     int i, demo = 0;
 
     putenv("UBUNTU_MENUPROXY=");
@@ -117,10 +114,10 @@ int main( int   argc,
 
     /* Create a bg thread using glib */
 
-    gth = g_thread_new("WebSocket",
+    g_thread_new("WebSocket",
                        (GThreadFunc)websock_thread,
                        (gpointer)&run_flag);
-    gth = g_thread_new("Serial",
+    g_thread_new("Serial",
                        (GThreadFunc)serial_thread,
                        (gpointer)&run_flag);
 

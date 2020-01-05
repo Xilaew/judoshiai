@@ -832,7 +832,7 @@ int make_svg_file(int argc, char *argv[])
     return 0;
 }
 
-#ifndef APPLICATION
+#ifndef APP_NUM
 
 int main(int argc, char *argv[])
 {

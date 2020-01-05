@@ -58,23 +58,13 @@ extern void serial_set_baudrate(gint baud);
 extern void serial_set_type(gint type);
 
 G_LOCK_DEFINE(send_mutex);
-G_LOCK_DEFINE_STATIC(rec_mutex);
 
 void send_packet(struct message *msg);
-
-static struct message next_match_messages[NUM_TATAMIS];
-static gboolean tatami_state[NUM_TATAMIS];
 
 struct message hello_message;
 
 #define NUM_CONNECTIONS 8
 static struct jsconn connections[NUM_CONNECTIONS];
-
-static struct {
-    gulong addr;
-    gint id;
-    gchar ssdp_info[SSDP_INFO_LEN];
-} noconnections[NUM_CONNECTIONS];
 
 //static volatile struct message message_queue[MSG_QUEUE_LEN];
 //static volatile gint msg_put = 0, msg_get = 0;
@@ -85,15 +75,10 @@ struct message msg_to_send[MSG_QUEUE_LEN];
 
 void msg_received(struct message *input_msg)
 {
-    struct message output_msg;
-    guint now, i;
-    gboolean newentry = FALSE;
-    gulong addr = input_msg->src_ip_addr;
-    gchar  buf[16];
 
 #if 0
     if (input_msg->type != MSG_HELLO)
-        g_print("msg type = %d from %lx (my addr = %lx)\n", input_msg->type, addr, my_address);
+        g_print("msg type = %d from %lx (my addr = %lx)\n", input_msg->type, input_msg->src_ip_addr, my_address);
 #endif
 
     switch (input_msg->type) {
@@ -123,6 +108,7 @@ struct message *put_to_rec_queue(volatile struct message *msg)
 	    p = strtok(NULL, ";");
 	}
     }
+    return NULL;
 }
 
 void msg_to_queue(struct message *msg)

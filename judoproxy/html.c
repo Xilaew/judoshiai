@@ -133,7 +133,7 @@ static gchar text[4000], *txt;
 static gint textix = 0;
 
 #define NUM_LINKS 32
-#define URL_LEN 32
+#define URL_LEN 33
 static struct link {
     gchar url[URL_LEN];
 } links[NUM_LINKS];
