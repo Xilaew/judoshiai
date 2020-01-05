@@ -9,12 +9,20 @@ function report() {
 
 # install MinGw-W64
 sudo apt install mingw-w64 mingw-w64-tools wine-stable
-# Download prebuilt dependencies from MSYS2 project.
-wget http://repo.msys2.org/mingw/x86_64/mingw-w64-x86_64-curl-7.67.0-1-any.pkg.tar.xz
-wget http://repo.msys2.org/mingw/x86_64/mingw-w64-x86_64-gtk3-3.24.9-4-any.pkg.tar.xz
-# Unpack prebuild dependencies from MSYS2 project.
-tar -xf mingw-w64-x86_64-curl-7.67.0-1-any.pkg.tar.xz
-tar -xf mingw-w64-x86_64-gtk3-3.24.9-4-any.pkg.tar.xz
+
+MSYS2_PACKAGES="mingw-w64-x86_64-curl-7.67.0-1-any.pkg.tar.xz \
+mingw-w64-x86_64-gtk3-3.24.9-4-any.pkg.tar.xz \
+mingw-w64-x86_64-libao-1.2.2-1-any.pkg.tar.xz \
+mingw-w64-x86_64-pango-1.43.0-3-any.pkg.tar.xz"
+
+for package in $MSYS2_PACKAGES; do
+    # Download prebuilt dependencies from MSYS2 project.
+    wget http://repo.msys2.org/mingw/x86_64/${package}
+    # Unpack prebuild dependencies from MSYS2 project.
+    tar -xf ${package}
+done
+
+#sudo cp -r mingw64/* /usr/x86_64-w64-mingw32/
 
 report "\
 The mxe build environment has been successfully set up!
