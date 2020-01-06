@@ -8,9 +8,11 @@ function report() {
 }
 
 # install MinGw-W64
+sudo apt update
 sudo apt install mingw-w64 mingw-w64-tools wine-stable
 
-MSYS2_PACKAGES="mingw-w64-x86_64-curl-7.67.0-1-any.pkg.tar.xz \
+MSYS2_PACKAGES="\
+mingw-w64-x86_64-curl-7.67.0-1-any.pkg.tar.xz \
 mingw-w64-x86_64-gtk3-3.24.9-4-any.pkg.tar.xz \
 mingw-w64-x86_64-libao-1.2.2-1-any.pkg.tar.xz \
 mingw-w64-x86_64-pango-1.43.0-3-any.pkg.tar.xz"

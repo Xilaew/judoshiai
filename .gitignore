@@ -34,3 +34,4 @@ xx*
 /.project
 /.pydevproject
 /.cproject
+/build*/

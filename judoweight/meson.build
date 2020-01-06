@@ -8,6 +8,7 @@ judoweight_sources = [
 
 common_sources = [
     '../common/auto-update.c',
+    '../common/binreloc.c',
     '../common/ip.c',
     '../common/language.c',
     '../common/protocol.c',

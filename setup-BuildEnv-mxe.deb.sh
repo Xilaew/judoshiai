@@ -1,12 +1,34 @@
 #!/bin/bash
+set -e
+
+# If further dependencies are needed to cross compile for Windows, simply add theire names here.
+LIBS="\
+gtk3,\
+curl,\
+librsvg,\
+libao,\
+mpg123"
+
+#ARCHS="\
+#x86_64-w64-mingw32,\
+#i686-w64-mingw32"
+ARCHS="\
+x86_64-w64-mingw32"
+
+TYPES="\
+static,\
+shared"
+
+PACKAGES_DEB=`eval echo mxe-{${ARCHS//_/-}}.{$TYPES}-{$LIBS} | tr -d {}`
+
+MXE_TARGETS=`eval echo {$ARCHS}.{$TYPES} | tr -d {}`
 
 function installMxeFromPrebuilt() {
 # Add mxe repositoy to apt unless it is already available,
   ( grep 'https://pkg.mxe.cc/repos/apt' /etc/apt/sources.list || sudo echo "deb [trusted=yes] https://pkg.mxe.cc/repos/apt bionic main" >> /etc/apt/sources.list ) && \
   sudo apt update && \
 # Install cross compiler and cross compiled libraries via apt.
-  sudo apt-get -y install mxe-x86-64-w64-mingw32.shared-gtk3 mxe-x86-64-w64-mingw32.shared-curl mxe-x86-64-w64-mingw32.shared-librsvg mxe-x86-64-w64-mingw32.shared-libao mxe-x86-64-w64-mingw32.shared-mpg123
-  sudo apt-get -y install mxe-i686-w64-mingw32.shared-gtk3 mxe-i686-w64-mingw32.shared-curl mxe-i686-w64-mingw32.shared-librsvg mxe-i686-w64-mingw32.shared-libao mxe-i686-w64-mingw32.shared-mpg123
+  sudo apt-get -y install $PACKAGES_DEB
 }
 
 function installMxeFromSource(){
@@ -14,10 +36,10 @@ function installMxeFromSource(){
   # clone the mxe git repository
   # and build the cross compiler and all libraries required by judoshiai
   sudo apt-get -y install autoconf automake autopoint bash bison bzip2 flex g++ g++-multilib gettext git gperf intltool libc6-dev-i386 libgdk-pixbuf2.0-dev libltdl-dev libssl-dev libtool-bin libxml-parser-perl lzip make openssl p7zip-full patch perl pkg-config python ruby sed unzip wget xz-utils && \
-  cd EE && \
+  cd && \
   git clone https://github.com/mxe/mxe.git && \
   cd ~/mxe && \
-  make MXE_TARGETS='i686-w64-mingw32.shared x86_64-w64-mingw32.shared' gtk3 curl librsvg libao mpg123 gmp gnutls nettle libgpg_error
+  make MXE_TARGETS="$MXE_TARGETS" ${LIBS//,/ }
 }
 
 function report() {

@@ -1,0 +1,4 @@
+[wrap-git]
+directory = glib-2.0
+url = https://gitlab.gnome.org/GNOME/glib.git
+revision = 2.62.4

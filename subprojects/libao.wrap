@@ -1,0 +1,4 @@
+[wrap-git]
+directory = ao
+url = https://github.com/xiph/libao.git
+revision = 1.2.2

@@ -17,15 +17,15 @@ if host_machine.system() == 'windows'
         language : 'c')
 endif
 
-flex = find_program('flex')
-bison = find_program('bison')
+flex = find_program('flex', required : false)
+bison = find_program('bison', required : false)
 patch = find_program('patch')
 libreoffic = find_program('soffice')
 
 cc = meson.get_compiler('c')
 ao_dep = dependency('ao')
 curl_dep = dependency('libcurl')
-dl_dep = cc.find_library('dl', required : false)
+dl_dep = cc.find_library('dl', required : host_machine.system() == 'linux')
 glib_dep = dependency('glib-2.0')
 gtk_dep = dependency('gtk+-3.0')
 m_dep = cc.find_library('m', required : host_machine.system() == 'linux')
