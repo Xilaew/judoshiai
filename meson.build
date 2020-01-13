@@ -20,7 +20,7 @@ endif
 flex = find_program('flex', required : false)
 bison = find_program('bison', required : false)
 patch = find_program('patch')
-libreoffic = find_program('soffice')
+libreoffice = find_program('soffice')
 
 cc = meson.get_compiler('c')
 ao_dep = dependency('ao')
@@ -38,6 +38,7 @@ xml_dep = dependency('libxml-2.0')
 
 includes = include_directories(['common', '3rdparty/httpp', '3rdparty/sqlite3', '3rdparty/cJSON', '3rdparty/lisp'])
 
+# program files
 subdir('judoinfo')
 subdir('judojudogi')
 if host_machine.system() == 'linux'
@@ -47,3 +48,9 @@ subdir('judoshiai')
 subdir('judotimer')
 subdir('judoweight')
 subdir('serial')
+
+# data
+subdir('doc')
+if host_machine.system() == 'linux'
+    subdir('gnome')
+endif
