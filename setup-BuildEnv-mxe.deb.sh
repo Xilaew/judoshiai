@@ -25,7 +25,7 @@ MXE_TARGETS=`eval echo {$ARCHS}.{$TYPES} | tr -d {}`
 
 function installMxeFromPrebuilt() {
 # Add mxe repositoy to apt unless it is already available,
-  ( grep 'https://pkg.mxe.cc/repos/apt' /etc/apt/sources.list || sudo echo "deb [trusted=yes] https://pkg.mxe.cc/repos/apt bionic main" >> /etc/apt/sources.list ) && \
+  ( grep 'https://pkg.mxe.cc/repos/apt' /etc/apt/sources.list || echo "deb [trusted=yes] https://pkg.mxe.cc/repos/apt bionic main" | sudo tee -a /etc/apt/sources.list > /dev/null ) && \
   sudo apt update && \
 # Install cross compiler and cross compiled libraries via apt.
   sudo apt-get -y install $PACKAGES_DEB
@@ -52,7 +52,7 @@ function askPrebuiltOrSource() {
   echo "Do you wish to install M Cross Environment from source or from prebuilt packages?";
   select yn in "prebuilt" "source"; do
     case $yn in
-      'prebuilt' ) installMxeFromPrebuilt && success || fail ; break;;
+      'prebuilt' ) installMxeFromPrebuilt && success || fail; break;;
       'source' ) ( installMxeFromSource && success ) || fail; break;;
     esac
   done
