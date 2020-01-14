@@ -55,3 +55,8 @@ if host_machine.system() == 'linux'
     subdir('gnome')
 endif
 subdir('po')
+install_subdir('custom-examples', install_dir : '')
+install_subdir('etc', install_dir : '')
+install_subdir('licenses', install_dir : '')
+install_subdir('svg', install_dir : '')
+install_subdir('svg-lisp', install_dir : '')
