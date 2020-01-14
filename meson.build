@@ -54,3 +54,4 @@ subdir('doc')
 if host_machine.system() == 'linux'
     subdir('gnome')
 endif
+subdir('po')

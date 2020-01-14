@@ -86,7 +86,7 @@ all:
 	@echo "---------------------------"
 	@echo "Run make in subdirectories"
 	@echo "---------------------------"
-	make -C common
+	make -C po
 	make -C judoshiai
 	make -C judotimer
 	make -C judoinfo
@@ -185,23 +185,23 @@ endif
 	@echo "---------------------------"
 	@echo "Copy translations"
 	@echo "---------------------------"
-	cp common/judoshiai-fi_FI.mo $(RELDIR)/share/locale/fi/LC_MESSAGES/judoshiai.mo
-	cp common/judoshiai-sv_SE.mo $(RELDIR)/share/locale/sv/LC_MESSAGES/judoshiai.mo
-	cp common/judoshiai-es_ES.mo $(RELDIR)/share/locale/es/LC_MESSAGES/judoshiai.mo
-	cp common/judoshiai-et_EE.mo $(RELDIR)/share/locale/et/LC_MESSAGES/judoshiai.mo
-	cp common/judoshiai-uk_UA.mo $(RELDIR)/share/locale/uk/LC_MESSAGES/judoshiai.mo
-	cp common/judoshiai-is_IS.mo $(RELDIR)/share/locale/is/LC_MESSAGES/judoshiai.mo
-	cp common/judoshiai-nb_NO.mo $(RELDIR)/share/locale/nb/LC_MESSAGES/judoshiai.mo
-	cp common/judoshiai-pl_PL.mo $(RELDIR)/share/locale/pl/LC_MESSAGES/judoshiai.mo
-	cp common/judoshiai-sk_SK.mo $(RELDIR)/share/locale/sk/LC_MESSAGES/judoshiai.mo
-	cp common/judoshiai-nl_NL.mo $(RELDIR)/share/locale/nl/LC_MESSAGES/judoshiai.mo
-	cp common/judoshiai-cs_CZ.mo $(RELDIR)/share/locale/cs/LC_MESSAGES/judoshiai.mo
-	cp common/judoshiai-de_DE.mo $(RELDIR)/share/locale/de/LC_MESSAGES/judoshiai.mo
-	cp common/judoshiai-ru_RU.mo $(RELDIR)/share/locale/ru/LC_MESSAGES/judoshiai.mo
-	cp common/judoshiai-da_DK.mo $(RELDIR)/share/locale/da/LC_MESSAGES/judoshiai.mo
-	cp common/judoshiai-he_IL.mo $(RELDIR)/share/locale/he/LC_MESSAGES/judoshiai.mo
-	cp common/judoshiai-fr_FR.mo $(RELDIR)/share/locale/fr/LC_MESSAGES/judoshiai.mo
-	cp common/judoshiai-fa_IR.mo $(RELDIR)/share/locale/fa/LC_MESSAGES/judoshiai.mo
+	cp po/fi.mo $(RELDIR)/share/locale/fi/LC_MESSAGES/judoshiai.mo
+	cp po/sv.mo $(RELDIR)/share/locale/sv/LC_MESSAGES/judoshiai.mo
+	cp po/es.mo $(RELDIR)/share/locale/es/LC_MESSAGES/judoshiai.mo
+	cp po/et.mo $(RELDIR)/share/locale/et/LC_MESSAGES/judoshiai.mo
+	cp po/uk.mo $(RELDIR)/share/locale/uk/LC_MESSAGES/judoshiai.mo
+	cp po/is.mo $(RELDIR)/share/locale/is/LC_MESSAGES/judoshiai.mo
+	cp po/nb.mo $(RELDIR)/share/locale/nb/LC_MESSAGES/judoshiai.mo
+	cp po/pl.mo $(RELDIR)/share/locale/pl/LC_MESSAGES/judoshiai.mo
+	cp po/sk.mo $(RELDIR)/share/locale/sk/LC_MESSAGES/judoshiai.mo
+	cp po/nl.mo $(RELDIR)/share/locale/nl/LC_MESSAGES/judoshiai.mo
+	cp po/cs.mo $(RELDIR)/share/locale/cs/LC_MESSAGES/judoshiai.mo
+	cp po/de.mo $(RELDIR)/share/locale/de/LC_MESSAGES/judoshiai.mo
+	cp po/ru.mo $(RELDIR)/share/locale/ru/LC_MESSAGES/judoshiai.mo
+	cp po/da.mo $(RELDIR)/share/locale/da/LC_MESSAGES/judoshiai.mo
+	cp po/he.mo $(RELDIR)/share/locale/he/LC_MESSAGES/judoshiai.mo
+	cp po/fr.mo $(RELDIR)/share/locale/fr/LC_MESSAGES/judoshiai.mo
+	cp po/fa.mo $(RELDIR)/share/locale/fa/LC_MESSAGES/judoshiai.mo
 	@echo "---------------------------"
 	@echo "Copy other files"
 	@echo "---------------------------"
@@ -343,7 +343,7 @@ debian_old:
 	rm description-pak postinstall-pak postremove-pak
 
 clean:
-	make -C common clean
+	make -C po clean
 	make -C judoshiai clean
 	make -C judotimer clean
 	make -C judoinfo clean

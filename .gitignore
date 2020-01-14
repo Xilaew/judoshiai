@@ -35,3 +35,4 @@ xx*
 /.pydevproject
 /.cproject
 /build*/
+/.idea/
