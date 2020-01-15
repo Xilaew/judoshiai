@@ -19,4 +19,5 @@ serial_exe = executable( 'websock-serial',
     serial_sources, common_sources, thirdparty_sources, '../judoshiai/websock.c',
     include_directories : includes,
     install : true,
+    install_dir : 'etc/html',
     dependencies : [ glib_dep, m_dep, ws_dep ] )

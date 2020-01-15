@@ -39,6 +39,7 @@ xml_dep = dependency('libxml-2.0')
 includes = include_directories(['common', '3rdparty/httpp', '3rdparty/sqlite3', '3rdparty/cJSON', '3rdparty/lisp'])
 
 # program files
+subdir('auto-update')
 subdir('judoinfo')
 subdir('judojudogi')
 if host_machine.system() == 'linux'
