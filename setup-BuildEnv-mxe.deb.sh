@@ -1,4 +1,9 @@
 #!/bin/bash
+# This file documents the necessary steps to setup an M cross environment (mxe)
+# based cross compile environment for a windows 7/8/10 32bit and 64bit target
+# on a debian/ubuntu based operating system.
+# This is the recommended cross compiler environment for judoshiai.
+# Tested on: Ubuntu 19.10 64 bit
 set -e
 
 # If further dependencies are needed to cross compile for Windows, simply add theire names here.

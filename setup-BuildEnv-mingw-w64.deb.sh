@@ -1,4 +1,9 @@
 #!/bin/bash
+# This file documents the necessary steps to setup a mingw/msys based cross
+# compile environment for a windows 7/8/10 32bit and 64bit target on a
+# debian/ubuntu based operating system.
+# This is an alternative to the mxe cross environment.
+# Tested on: Ubuntu 19.10 64 bit
 set -e
 
 function report() {
