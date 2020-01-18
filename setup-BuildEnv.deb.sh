@@ -1,4 +1,7 @@
 #!/bin/bash
+# This file documents the necessary steps to setup a build environment on a
+# debian/ubuntu based system.
+# Tested on: Ubuntu 19.10 64bit
 set -e
 
 function report() {
@@ -22,18 +25,5 @@ sudo apt-get -y install libreoffice
 report "FPM for Debian package creation"
 sudo apt-get -y install ruby ruby-dev rubygems
 sudo -E gem install fpm
-report "Stuff for WinXP build"
-sudo apt-get -y install mingw-w64
-sudo apt-get -y install wine-stable
-wget http://judoshiai.sourceforge.net/win32-gtk3.tgz
-sudo tar xvzf win32-gtk3.tgz -C /opt
-report "Stuff for Win32 and Win64 builds. This will take a long time to finish."
-grep  'https://pkg.mxe.cc/repos/apt' /etc/apt/sources.list || sudo echo "deb [trusted=yes] https://pkg.mxe.cc/repos/apt bionic main" >> /etc/apt/sources.list
-sudo apt update
-sudo apt-get -y install mxe-x86-64-w64-mingw32.shared-gtk3 mxe-x86-64-w64-mingw32.shared-curl mxe-x86-64-w64-mingw32.shared-librsvg mxe-x86-64-w64-mingw32.shared-libao mxe-x86-64-w64-mingw32.shared-mpg123
-report "Get JudoShiai source code"
-cd
-(cd judoshiai; git status) || git clone http://git.code.sf.net/p/judoshiai/judoshiai
-cd judoshiai
-report "Compile all"
-./build-all.sh
+report "rpm for Redhat package creation"
+sudo apt-get -y install rpm

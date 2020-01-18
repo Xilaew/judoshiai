@@ -36,3 +36,5 @@ xx*
 /.cproject
 /build*/
 /.idea/
+/po/*.mo
+/po/judoshiai.pot
