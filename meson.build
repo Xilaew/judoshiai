@@ -1,8 +1,7 @@
-project('judoshiai', 'c', version : '3.0-ALPHA-4')
-SHIAI_VERSION = '"meson.project_version()"'
+project('judoshiai', 'c', version : run_command( 'git', '-C', meson.source_root(), 'describe', '--tags' ).stdout().strip(), meson_version : '>= 0.46')
 
 add_project_arguments(
-    '-DSHIAI_VERSION=' + SHIAI_VERSION,
+    '-DSHIAI_VERSION="' + meson.project_version() + '"',
     '-DGTKVER=3',
     '-DUSE_PANGO',
     '-DENABLE_NLS',
