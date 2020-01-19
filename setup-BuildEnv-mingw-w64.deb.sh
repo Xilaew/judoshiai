@@ -3,7 +3,7 @@
 # compile environment for a windows 7/8/10 32bit and 64bit target on a
 # debian/ubuntu based operating system.
 # This is an alternative to the mxe cross environment.
-# Tested on: Ubuntu 19.10 64 bit
+# Tested on: Ubuntu 19.10 64 bit (not fully working, some packages are missing)
 set -e
 
 function report() {
