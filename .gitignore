@@ -14,7 +14,6 @@ judoshiai/basic.tab.h
 judoshiai/lex.yy.c
 release-*
 test
-*.rc
 *.res
 *.rej
 *~

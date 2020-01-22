@@ -15,8 +15,13 @@ common_sources = [
     '../common/serial.c',
     ]
 
+judoweight_res = []
+if host_machine.system() == 'windows'
+    judoweight_res = import('windows').compile_resources('judoweight.rc', depend_files: '../etc/judoweight.ico')
+endif
+
 judoweight_exe = executable( 'judoweight',
-    judoweight_sources, common_sources,
+    judoweight_sources, common_sources, judoweight_res,
     c_args : [ '-DAPP_NUM=4' ],
     include_directories : includes,
     install : true,

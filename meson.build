@@ -1,4 +1,4 @@
-project('judoshiai', 'c', version : run_command( 'git', '-C', meson.source_root(), 'describe', '--tags' ).stdout().strip(), meson_version : '>= 0.46')
+project('judoshiai', 'c', version : run_command( 'git', '-C', meson.source_root(), 'describe', '--tags' ).stdout().strip(), meson_version : '>= 0.47')
 
 add_project_arguments(
     '-DSHIAI_VERSION="' + meson.project_version() + '"',
@@ -51,12 +51,27 @@ subdir('serial')
 
 # data
 subdir('doc')
-if host_machine.system() == 'linux'
-    subdir('gnome')
-endif
 subdir('po')
 install_subdir('custom-examples', install_dir : '')
 install_subdir('etc', install_dir : '')
 install_subdir('licenses', install_dir : '')
 install_subdir('svg', install_dir : '')
 install_subdir('svg-lisp', install_dir : '')
+
+# platform specific stuff
+if host_machine.system() == 'linux'
+    subdir('gnome')
+elif host_machine.system() == 'windows'
+    if meson.is_cross_build()
+        sys_root = meson.get_cross_property('sys_root', meson.current_source_dir())
+    else
+        # TODO find a clever way to extract the relevant directories from the environment.
+        # e.g run_command(bash, '-c', 'echo $PATH').ouput.strip.split(':').filter(!Windows)
+        sys_root = ''
+        # TODO icon_themes and gtk_themes could be downloaded from the internet during build.
+        install_subdir('share', install_dir : '')
+    endif
+    install_subdir('share', install_dir : '')
+    meson.add_install_script('bash', '-c', '@2@/copydlldeps.sh -d $MESON_INSTALL_DESTDIR_PREFIX/@0@ -F $MESON_INSTALL_DESTDIR_PREFIX/@0@ -R @1@'.format(get_option('bindir'), sys_root, meson.current_source_dir()))
+    meson.add_install_script('bash', '-c', 'mkdir -p $MESON_INSTALL_DESTDIR_PREFIX/@0@/glib-2.0/schemas; cp @1@/share/glib-2.0/schemas/gschemas.compiled $MESON_INSTALL_DESTDIR_PREFIX/@0@/glib-2.0/schemas/'.format(get_option('datadir'), sys_root))
+endif

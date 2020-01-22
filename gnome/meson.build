@@ -9,7 +9,7 @@ launchers = [
 
 # Until meson supports an install_link command we use this slightly complicated workaround
 bindir = get_option('bindir')
-meson.add_install_script('sh', '-c',
+meson.add_install_script('bash', '-c',
                          'mkdir -p $DESTDIR/usr/bin; ln -s -r -f -t $DESTDIR/usr/bin $MESON_INSTALL_DESTDIR_PREFIX/@0@/judoshiai $MESON_INSTALL_DESTDIR_PREFIX/@0@/judojudogi $MESON_INSTALL_DESTDIR_PREFIX/@0@/judoproxy $MESON_INSTALL_DESTDIR_PREFIX/@0@/judoinfo $MESON_INSTALL_DESTDIR_PREFIX/@0@/judotimer $MESON_INSTALL_DESTDIR_PREFIX/@0@/judoweight'.format(bindir))
 
 mime_info = [

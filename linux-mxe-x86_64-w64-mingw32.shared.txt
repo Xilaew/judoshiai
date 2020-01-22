@@ -15,6 +15,7 @@ pkgconfig = '/usr/lib/mxe/usr/bin/x86_64-w64-mingw32.shared-pkg-config'
 
 [properties]
 needs_exe_wrapper = true
+sys_root = '/usr/lib/mxe/usr/x86_64-w64-mingw32.shared'
 
 [host_machine]
 system = 'windows'

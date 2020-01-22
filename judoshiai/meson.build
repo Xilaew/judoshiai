@@ -87,9 +87,14 @@ sqlite = custom_target(
     command : [ patch, '-p2', '-o', '@OUTPUT@', '@INPUT@']
 )
 
+judoshiai_res = []
+if host_machine.system() == 'windows'
+    judoshiai_res = import('windows').compile_resources('judoshiai.rc', depend_files: '../etc/judoshiai.ico')
+endif
+
 judoshiai_exe = executable( 'judoshiai',
-    judoshiai_sources, common_sources, thirdparty_sources, 
-    lex, basic[0], sqlite,
+    judoshiai_sources, common_sources, thirdparty_sources,
+    lex, basic[0], sqlite, judoshiai_res,
     c_args : [ '-DAPP_NUM=1' ],
     include_directories : includes,
     install : true,

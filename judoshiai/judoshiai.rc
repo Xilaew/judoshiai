@@ -1,0 +1,28 @@
+APPICONS ICON "../etc/judoshiai.ico"
+
+1 VERSIONINFO
+FILEVERSION 3,0,0,0
+PRODUCTVERSION 3,0,0,0
+FILEOS 0x4
+FILETYPE 0x1
+{
+BLOCK "StringFileInfo"
+{
+	BLOCK "00001200"
+	{
+		VALUE "CompanyName", "JudoShiai"
+		VALUE "FileDescription", "Judo Tournament Organisation"
+		VALUE "FileVersion", "version-2.5-346-g917ffa1"
+		VALUE "InternalName", "judoshiai"
+		VALUE "LegalCopyright", "Hannu Jokinen"
+		VALUE "OriginalFilename", "judoshiai.exe"
+		VALUE "ProductName", "JudoShiai"
+		VALUE "ProductVersion", "version-2.5-346-g917ffa1"
+	}
+}
+
+BLOCK "VarFileInfo"
+{
+	VALUE "Translation", 0x0000, 0x1200
+}
+}

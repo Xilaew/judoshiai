@@ -17,8 +17,13 @@ common_sources = [
     '../common/websock-protocol.c'
     ]
 
+judojudogi_res = []
+if host_machine.system() == 'windows'
+    judojudogi_res = import('windows').compile_resources('judojudogi.rc', depend_files: '../etc/judojudogi.ico')
+endif
+
 judojudogi_exe = executable( 'judojudogi',
-    judojudogi_sources, common_sources,
+    judojudogi_sources, common_sources, judojudogi_res,
     c_args : [ '-DAPP_NUM=5' ],
     include_directories : includes,
     install : true,
