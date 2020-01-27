@@ -11,7 +11,8 @@ exe_wrapper = 'wine'
 # Directory that contains 'bin', 'lib', etc
 root = '/usr/i686-w64-mingw32'
 # Directory that contains 'bin', 'lib', etc for the toolchain and system libraries
-sys_root = '/usr/i686-w64-mingw32/sys-root/mingw'
+sys_root = '/opt/win32'
+gtk_root = '/opt/win32/gtk'
 
 [host_machine]
 system = 'windows'

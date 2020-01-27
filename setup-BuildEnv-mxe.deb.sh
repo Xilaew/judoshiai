@@ -14,11 +14,9 @@ librsvg,\
 libao,\
 mpg123"
 
-#ARCHS="\
-#x86_64-w64-mingw32,\
-#i686-w64-mingw32"
 ARCHS="\
-x86_64-w64-mingw32"
+x86_64-w64-mingw32,\
+i686-w64-mingw32"
 
 TYPES="\
 static,\

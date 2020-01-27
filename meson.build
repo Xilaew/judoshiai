@@ -64,14 +64,16 @@ if host_machine.system() == 'linux'
 elif host_machine.system() == 'windows'
     if meson.is_cross_build()
         sys_root = meson.get_cross_property('sys_root', meson.current_source_dir())
+        gtk_root = meson.get_cross_property('gtk_root', sys_root)
     else
         # TODO find a clever way to extract the relevant directories from the environment.
         # e.g run_command(bash, '-c', 'echo $PATH').ouput.strip.split(':').filter(!Windows)
         sys_root = ''
-        # TODO icon_themes and gtk_themes could be downloaded from the internet during build.
-        install_subdir('share', install_dir : '')
+        gtk_root = sys_root
     endif
-    install_subdir('share', install_dir : '')
+    # TODO icon_themes and gtk_themes could be downloaded from the internet during build.
     meson.add_install_script('bash', '-c', '@2@/copydlldeps.sh -d $MESON_INSTALL_DESTDIR_PREFIX/@0@ -F $MESON_INSTALL_DESTDIR_PREFIX/@0@ -R @1@'.format(get_option('bindir'), sys_root, meson.current_source_dir()))
-    meson.add_install_script('bash', '-c', 'mkdir -p $MESON_INSTALL_DESTDIR_PREFIX/@0@/glib-2.0/schemas; cp @1@/share/glib-2.0/schemas/gschemas.compiled $MESON_INSTALL_DESTDIR_PREFIX/@0@/glib-2.0/schemas/'.format(get_option('datadir'), sys_root))
+    meson.add_install_script('bash', '-c', 'mkdir -p $MESON_INSTALL_DESTDIR_PREFIX/@0@/; cp -R @1@/share/icons $MESON_INSTALL_DESTDIR_PREFIX/@0@/'.format(get_option('datadir'), gtk_root))
+    meson.add_install_script('bash', '-c', 'mkdir -p $MESON_INSTALL_DESTDIR_PREFIX/@0@/; cp -R @1@/share/themes $MESON_INSTALL_DESTDIR_PREFIX/@0@/'.format(get_option('datadir'), gtk_root))
+    meson.add_install_script('bash', '-c', 'mkdir -p $MESON_INSTALL_DESTDIR_PREFIX/@0@/glib-2.0/schemas; cp @1@/share/glib-2.0/schemas/gschemas.compiled $MESON_INSTALL_DESTDIR_PREFIX/@0@/glib-2.0/schemas/'.format(get_option('datadir'), gtk_root))
 endif
