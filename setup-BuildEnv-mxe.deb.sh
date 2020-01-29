@@ -81,4 +81,8 @@ successfully cross compile Judoshiai for Windows 7, Windows 8 and Windows 10.
 You can choose to build mxe from source which will take quite a while or simply
 install a prebuilt version from https://pkg.mxe.cc"
 
-askPrebuiltOrSource
+if [ -z "$CI" ]; then
+  installMxeFromPrebuilt
+else
+  askPrebuiltOrSource
+fi

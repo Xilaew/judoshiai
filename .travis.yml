@@ -1,0 +1,29 @@
+language: minimal
+
+addons:
+  apt:
+    - libreoffice
+
+before_install:
+  - ./setup-BuildEnv.deb.sh
+  - ./setup-BuildEnv-mxe.deb.sh
+  - ./setup-BuildEnv-ming32.deb.sh
+
+script:
+  - ./build-release.sh
+  - ./build-win-release.sh
+  - ./build-winxp-release.sh
+deploy:
+  provider: releases
+  api_key:
+    secure: bS1x9/GTZBLtbRts0n/WvCGLjFrqUG3eTcD/nGJS7zwCwzXGiJMiCMU4/5beopr7fYl4KQuv4NNEITEh3iH8Xba/pkRMZUZvmap9ax4SD6WflFp+UtaK3UxndWvP0r6Dr4CFM4hGutyPhONxljXUllGLnOolSGoWfP7sH0qQqGGk6SuULmlyPDEm+2LSVMKEiUb6SJ++M9UVhrQmjbpjQGSnnNJtxsMEG5FIgM15puKO7DMvf4b4XXoJ2Hbm2ccsJ+4w9RX9JD/h1JM5i1hziiJqnuq6W3hUm5Lv82AAH3UXHCzldSZjegWuH3rXOeAnoPudaz7awQmxU4QLXuHu+Tzz7l+i0+OlelB3V28IYUynCvYcOZ3+sKjZkQsP8pZG1DejsvTep3iulCY7ivUNtLpELL2Cx7HecnfhfImau4BxJNASO6DY0nFy+M1jq+EyQWy97txsM30aQVnockIAiDeYOMfrBu4ADmmXIGaSETwJ49E5xWdRTtRwpASMeTCnH3VZOK/mPxJxfbxlPCcFDoEeyj+bV9/fkMRh6glijGzxuwb5s6qQAQLMXNTv2FIgzih2HV/3n/RrYXl9XUjadkgT6vRww9yIYLdwn09u8wBnbVpe3jrBXCmwVTWc6snRPc2zWxeJ/BZ2ba9TodDXkmgGr5xyUxog3SP+bEMnK5Y=
+  file_glob: true
+  file:
+    - build-release/judoshiai-*
+    - build-release/judoshiai*.deb
+    - build-win32-release/judoshiai-*.zip
+    - build-win64-release/judoshiai-*.zip
+    - build-winxp-release/judoshiai-*.zip
+  skip_cleanup: true
+  on:
+    tags: true
