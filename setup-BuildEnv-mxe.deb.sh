@@ -82,7 +82,7 @@ You can choose to build mxe from source which will take quite a while or simply
 install a prebuilt version from https://pkg.mxe.cc"
 
 if [ -z "$CI" ]; then
-  installMxeFromPrebuilt
-else
   askPrebuiltOrSource
+else
+  installMxeFromPrebuilt
 fi
