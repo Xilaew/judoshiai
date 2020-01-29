@@ -350,6 +350,7 @@ clean:
 	make -C judoweight clean
 	make -C judojudogi clean
 	make -C judoproxy clean
+	make -C auto-update clean
 ifeq ($(JUDOHTTPD),YES)
 	make -C judohttpd clean
 endif

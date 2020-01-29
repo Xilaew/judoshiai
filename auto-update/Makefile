@@ -59,4 +59,4 @@ ifeq ($(TGT),WIN32)
 endif
 
 clean:
-	rm -f $(OBJDIR)/*.o
+	rm -f $(OBJDIR)/*.o auto-update-icon.rc

@@ -66,4 +66,4 @@ $(OBJDIR)/%.o: %.c judotimer.h ../common/comm.h
 	${CC} -g $(CFLAGS) -c $< -o $@
 
 clean:
-	rm -f $(OBJDIR)/* *.res *.rc *~
+	rm -f $(OBJDIR)/* *.res judotimer-icon.rc *~

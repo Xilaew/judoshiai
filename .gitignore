@@ -37,3 +37,10 @@ xx*
 /.idea/
 /po/*.mo
 /po/judoshiai.pot
+/judoshiai/judoshiai-icon.rc
+/judojudogi/judojudogi-icon.rc
+/judoinfo/judoinfo-icon.rc
+/auto-update/auto-update-icon.rc
+/judotimer/judotimer-icon.rc
+/judoweight/judoweight-icon.rc
+/win32-gtk3.tgz

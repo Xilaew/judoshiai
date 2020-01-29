@@ -60,4 +60,4 @@ $(OBJDIR)/%.o: %.c
 	${CC} -g $(CFLAGS) -c $< -o $@
 
 clean:
-	rm -f $(OBJDIR)/* *.res *.rc *~
+	rm -f $(OBJDIR)/* *.res judojudogi-icon.rc *~

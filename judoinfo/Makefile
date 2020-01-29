@@ -60,4 +60,4 @@ $(OBJDIR)/%.o: %.c judoinfo.h ../common/comm.h
 	${CC} -g $(CFLAGS) -c $< -o $@
 
 clean:
-	rm -f $(OBJDIR)/* *.res *.rc *~
+	rm -f $(OBJDIR)/* *.res judoinfo-icon.rc *~

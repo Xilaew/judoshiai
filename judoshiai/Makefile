@@ -108,4 +108,4 @@ basic.tab.c basic.tab.h: basic.y
 	bison -t -v -d basic.y
 
 clean:
-	rm -f $(OBJDIR)/* *.res *.rc *~ lex.yy.c basic.tab.c basic.tab.h
+	rm -f $(OBJDIR)/* *.res judoshiai-icon.rc *~ lex.yy.c basic.tab.c basic.tab.h basic.output sqlite3-patched.c sqlite3-patched.c.orig
