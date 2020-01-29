@@ -7,7 +7,7 @@ addons:
 before_install:
   - ./setup-BuildEnv.deb.sh
   - ./setup-BuildEnv-mxe.deb.sh
-  - ./setup-BuildEnv-ming32.deb.sh
+  - ./setup-BuildEnv-mingw32.deb.sh
 
 script:
   - ./build-release.sh
