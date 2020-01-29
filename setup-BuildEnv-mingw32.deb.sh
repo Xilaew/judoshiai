@@ -13,7 +13,7 @@ function report() {
 report "Stuff for WinXP build"
 sudo apt update
 sudo apt-get -y install mingw-w64
-sudo apt-get -y install wine-stable
+sudo apt-get -y install wine || sudo apt-get -y install wine-stable
 wget http://judoshiai.sourceforge.net/win32-gtk3.tgz
 sudo tar xvzf win32-gtk3.tgz -C /opt
 sudo mkdir -p /srv/win32builder/fixed_364/build/
