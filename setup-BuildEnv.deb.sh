@@ -29,4 +29,4 @@ report "rpm for Redhat package creation"
 sudo apt-get -y install rpm
 report "get mesonbuild"
 sudo apt-get -y install python3 python3-pip python3-setuptools python3-wheel mingw-w64-tools
-sudo pip3 install meson
+sudo pip3 install meson ninja
