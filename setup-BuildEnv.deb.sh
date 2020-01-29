@@ -27,3 +27,6 @@ sudo apt-get -y install ruby ruby-dev rubygems
 sudo -E gem install fpm
 report "rpm for Redhat package creation"
 sudo apt-get -y install rpm
+report "get mesonbuild"
+sudo apt-get -y install python3 python3-pip
+sudo pip3 install meson

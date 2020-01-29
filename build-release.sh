@@ -1,6 +1,7 @@
 #!/bin/bash
 # This file documents the necessary steps to compile judoshiai for linux and
 # create all kinds of packages to distribute judoshiai for linux hosts
+set -e
 SHIAI_VER_NUM=`git describe --tags`
 
 rm -rf build-release

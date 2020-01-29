@@ -1,3 +1,5 @@
+#!/bin/bash
+set -e
 VERSION=`git describe --tags`
 rm -rf build-win64-release
 meson build-win64-release --cross-file linux-mxe-x86_64-w64-mingw32.shared.txt --buildtype=release --prefix=/
